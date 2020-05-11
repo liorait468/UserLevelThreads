@@ -1,0 +1,61 @@
+EX: 2
+
+FILES:
+uthreads.cpp -- a class which  deliver a functional static library, that creates and manages
+user level threads.
+thread.cpp -- a class which represent a thread. It contains the information about the thread.
+thread.h -- an header file of the class thread
+
+REMARKS:
+-
+
+ANSWERS:
+
+Q1:
+We want to use user level threads when we want to manage the time each thread will run or to manage
+the priority of a thread. User level thread gives us the opportunity to run certain thread with the
+priority we want according to the importance of the operation.
+It also gives us an option to share files and other data between the threads.
+for example: if we are programing the iron dome system, we have some operations which the iron dome
+has to do in order to make the pursuer rocket run after the rocket we want to catch. for example,
+make it stay at the sky and pursue after the other rocket. This will be the role of the first thread
+while the second thread has to blow the rocket when it encounters the other. so we want our system
+to manage the transition between the thread according to priority.
+
+Q2:
+The advantages of creating new process:
+- Each process run separately without any access to the data of the other process. Therefore the
+processes wont influence each other.
+- Another advantage of processes is that they can crash and you can feel relatively safe in the
+knowledge that you can just restart them. However, if a thread crashes, it may crash the entire
+process, which may bring down your entire application.
+The disadvantages of creating new process:
+- Multiply code - we have to write the similar code for each process if the job of the process are
+the same, because we cant share the code between some processes, the data of processes is separate.
+- The context switch between processes takes more time than switching threads, because it has to
+load more data to the memory.
+
+Q3:
+The signals that are involved during the command execution:
+SIGTSTP - to suspend the application we run.
+SIGKILL - to kill the process.
+We run the application and than we create interrupt using ctrl+z in the shell, we are using the IO
+in order to suspend the running of the application. Than the OS handles the interrupt and sends
+signal(SIGTSTP) to the process.
+After that we find the id of the process and kill it using the kill pid command. the kill command is
+an interrupt we send to the OS. The OS handle the interrupt and send signal(SIGKILL) to the process
+that handles the signal and stop the running of the program.
+
+Q4:
+The difference between real time and virtual time is that the virtual time measures the time of the
+CPU and the real time measures the real time passed.
+An example of using real time - For embedded applications when we want to measure the performance we
+ check the real time takes to perform the operation.
+An example of using virtual time - When we want to measure the performance of the CPU we use virtual
+ time. For example, using the task manager.
+
+
+
+
+
+
